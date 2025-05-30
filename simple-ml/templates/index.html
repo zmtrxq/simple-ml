@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple ML</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Simple ML</h1>
+
+        <div class="step">
+            <h3>Step 1: Load Training Data</h3>
+            <label for="train-file-input" class="neon-button">Load Training CSV</label>
+            <input type="file" id="train-file-input" accept=".csv" style="display: none;">
+            <span id="train-file-name"></span>
+        </div>
+
+        <div class="step" id="column-selection-step" style="display:none;">
+            <h3>Step 2: Preview Data, Select Target & Columns to Drop</h3>
+            <h4>Training Data Preview (First 5 Rows):</h4>
+            <div id="df-head-preview" class="dataframe-preview-container"></div>
+            <h4>Select Columns:</h4>
+            <div id="column-selector-container"></div>
+        </div>
+        
+        <div class="step" id="problem-type-step" style="display:none;">
+            <h3>Step 3: Define Problem & Load Test Data</h3>
+            <div>
+                <label class="input-group-label">Problem Type:</label>
+                <input type="radio" id="classification" name="problem-type" value="classification" checked>
+                <label for="classification">Classification</label>
+                <input type="radio" id="regression" name="problem-type" value="regression">
+                <label for="regression">Regression</label>
+            </div>
+            <div>
+                <label for="test-file-input" class="neon-button">Load Test CSV</label>
+                <input type="file" id="test-file-input" accept=".csv" style="display: none;">
+                <span id="test-file-name"></span>
+            </div>
+        </div>
+
+        <div class="step">
+            <button id="run-models" class="neon-button" style="display:none;">Run Analysis</button>
+        </div>
+        
+        <div id="loading-indicator" style="display:none;">Processing... Please wait.</div>
+        
+        <div id="summary-table-area" class="summary-results-container" style="display:none;">
+            <!-- Summary table will be injected here -->
+        </div>
+        <hr class="divider summary-divider" style="display:none;">
+
+        <div id="general-plots-area" class="plots-container"></div>
+        <hr class="divider results-divider" style="display:none;">
+        
+        <div id="results-area">
+            <!-- Detailed model results and plots will be injected here -->
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

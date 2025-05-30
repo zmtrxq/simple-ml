@@ -1,0 +1,271 @@
+/* static/style.css */
+
+body {
+    background-color: #000000; 
+    color: #FFFFFF; /* --- White text default --- */
+    font-family: 'Courier New', Courier, monospace;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    min-height: 100vh;
+    margin: 0; 
+    padding: 20px; 
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #111111; 
+    padding: 30px; 
+    border-radius: 10px;
+    border: 2px solid #00ffff; /* --- Neon Cyan Border for main container --- */
+    box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+    width: 100%; 
+    max-width: 900px; 
+    margin-bottom: 30px;
+}
+
+/* --- Headers --- */
+h1, h2, h3, h4 { 
+    color: #00ffaa; /* --- Neon Green for headers --- */
+    margin-top: 20px; 
+    margin-bottom: 10px; 
+}
+h1 { 
+    text-align: center; 
+    text-shadow: 0 0 5px #00ffaa; 
+    margin-bottom: 25px; 
+}
+h2 { 
+    text-align: center; 
+    border-bottom: 1px solid #00ffaa; /* Neon green underline for H2 */
+    padding-bottom: 5px; 
+}
+
+/* --- General Layout & Labels --- */
+div { 
+    margin-bottom: 15px; 
+}
+label { 
+    margin-right: 10px; 
+    cursor: pointer; 
+    color: #FFFFFF; /* White label text */
+}
+label.input-group-label { /* For labels like "Problem Type:" */
+    font-weight: bold; 
+    color: #00dd88; /* Slightly different neon green */
+    margin-right: 15px;
+}
+
+/* --- Input Fields --- */
+.neon-input {
+    background-color: #0a0a0a; 
+    color: #FFFFFF; /* White text in input */
+    border: 1px solid #00aa00; /* Darker neon green border */
+    padding: 8px 12px; 
+    border-radius: 5px; 
+    box-shadow: inset 0 0 5px rgba(0, 255, 0, 0.3); 
+    min-width: 200px;
+}
+.neon-input:focus { 
+    outline: none; 
+    border-color: #00ff00; /* Brighter neon green on focus */
+    box-shadow: 0 0 8px #00ff00, inset 0 0 5px rgba(0, 255, 0, 0.5); 
+}
+
+/* --- Buttons --- */
+.neon-button {
+    background-color: transparent; 
+    border: 2px solid #00ffff; /* Neon cyan border */
+    color: #00ffff; /* Neon cyan text */
+    padding: 10px 20px;
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px;
+    margin-top: 10px; 
+    cursor: pointer; 
+    border-radius: 5px;
+    box-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff; 
+    transition: all 0.3s ease-in-out;
+}
+.neon-button:hover, .neon-button:focus { 
+    color: #000000; /* Black text on hover */
+    background-color: #00ffff; /* Neon cyan background on hover */
+    box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff; 
+    outline: none; 
+}
+.neon-button:disabled { 
+    color: #555555; 
+    border-color: #555555; 
+    background-color: #222222; 
+    box-shadow: none; 
+    cursor: not-allowed; 
+}
+/* Style for the download predictions button */
+.download-preds-button {
+    font-size: 0.9em;
+    padding: 6px 12px;
+    margin-left: 15px;
+    background-color: #005555; /* Darker cyan for download button */
+    border-color: #00aaaa;
+    color: #00ffff;
+}
+.download-preds-button:hover {
+    background-color: #007777;
+    color: #FFFFFF;
+}
+
+
+/* --- File Name Spans --- */
+#train-file-name, #test-file-name { 
+    margin-left: 10px; 
+    font-style: italic; 
+    color: #00aa00; /* Darker neon green */
+}
+
+/* --- Containers for Results, Plots, Preview, Selectors --- */
+#results-area, 
+#general-plots-area, 
+.dataframe-preview-container, 
+#column-selector-container, 
+.summary-results-container {
+    margin-top: 20px; 
+    padding: 15px; 
+    border: 1px solid #00ffff; /* --- Neon Cyan Border for these blocks --- */
+    border-radius: 5px; 
+    min-height: 50px; 
+    background-color: #0a0a0a; /* Dark background for content areas */
+    overflow: auto; /* Enable scroll if content overflows */
+}
+#column-selector-container { 
+    max-height: 300px; /* Scrollable column list */
+}
+.dataframe-preview-container { 
+    max-height: 250px; /* Scrollable df.head() preview */
+    margin-bottom: 15px; 
+}
+
+/* --- General Table Styling (reused by df.head(), summary, column select, model metrics) --- */
+table.neon-table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    font-size: 0.9em; 
+    color: #FFFFFF; /* White text in tables */
+    border: 1px solid #00ffff; /* --- Outer border for the whole table --- */
+    margin-bottom: 15px; 
+}
+table.neon-table th, 
+table.neon-table td {
+    border: 1px solid #007777; /* --- Darker Cyan for INNER cell borders --- */ 
+    padding: 8px 10px; 
+    text-align: left; 
+    /* white-space: nowrap; /* Allowing text wrapping for better readability */
+}
+table.neon-table thead th { 
+    background-color: #003333; 
+    color: #00ffff; 
+    font-weight: bold; 
+    border-bottom: 2px solid #00ffff; /* --- Stronger bottom border for header row --- */
+}
+table.neon-table tbody tr:nth-child(even) { 
+    background-color: #001a1a; 
+}
+table.neon-table tbody tr:hover { 
+    background-color: #004444; 
+}
+
+/* Specific styling for accuracy in summary table */
+table.summary-table td.metric-accuracy { /* Applied via JS if header is 'Accuracy' */
+    font-weight: bold;
+    font-size: 1.1em; 
+    color: #00ffaa; 
+}
+
+
+/* --- Styling for the Column Selection Table --- */
+table.column-select-table { /* Inherits from neon-table if class added, or apply specific styles */
+    margin-top: 10px; 
+}
+table.column-select-table th,
+table.column-select-table td {
+    vertical-align: middle; 
+}
+table.column-select-table th { 
+    white-space: nowrap; 
+}
+table.column-select-table td.col-name-cell {
+    white-space: normal; 
+    word-break: break-all; 
+    max-width: 300px; 
+}
+table.column-select-table td.select-cell {
+    text-align: center; 
+    width: 80px; 
+    cursor: pointer; 
+}
+table.column-select-table input[type="radio"],
+table.column-select-table input[type="checkbox"] {
+    margin: 0; 
+    vertical-align: middle;
+    cursor: pointer;
+    accent-color: #00ffff; 
+}
+
+/* --- Plot Image Styling --- */
+.plots-container img, .model-plots img {
+    max-width: 100%; 
+    height: auto; 
+    border: 1px solid #00ffff; 
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+    background-color: #1a1a1a; 
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+/* --- Model Result Card Styling --- */
+.model-result-card { 
+    border: 1px solid #007777; 
+    padding: 15px; 
+    margin-bottom: 20px; 
+    border-radius: 5px; 
+    background-color: #1a1a1a; 
+}
+.model-result-card h3 { /* Model name header in card */
+    display: flex;
+    justify-content: space-between; /* Pushes button to the right */
+    align-items: center;
+}
+
+
+/* --- Divider Styling --- */
+hr.divider { 
+    border: 0; 
+    height: 1px; 
+    background-image: linear-gradient(to right, rgba(0,0,0,0), #00ffff, rgba(0,0,0,0)); 
+    margin: 25px 0; 
+}
+
+/* --- Step Styling --- */
+.step { 
+    margin-bottom: 25px; 
+    padding-bottom: 15px; 
+    border-bottom: 1px dotted #007777; 
+}
+.step:last-child { 
+    border-bottom: none; 
+}
+
+/* --- Loading Indicator and Warnings --- */
+#loading-indicator {
+    color: #00ffaa; 
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 20px;
+}
+.warning-text { 
+    color: #ffae42; /* Orange for warnings */
+    font-size: 0.9em; 
+    margin-top: 5px; 
+}
