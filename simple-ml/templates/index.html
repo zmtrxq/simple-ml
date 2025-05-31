@@ -9,6 +9,7 @@
     <div class="container">
         <h1>Simple ML</h1>
 
+        <!-- Step 1: File upload for training data -->
         <div class="step">
             <h3>Step 1: Load Training Data</h3>
             <label for="train-file-input" class="neon-button">Load Training CSV</label>
@@ -16,6 +17,7 @@
             <span id="train-file-name"></span>
         </div>
 
+        <!-- Step 2: Dynamic section for column preview and selection -->
         <div class="step" id="column-selection-step" style="display:none;">
             <h3>Step 2: Preview Data, Select Target & Columns to Drop</h3>
             <h4>Training Data Preview (First 5 Rows):</h4>
@@ -24,6 +26,7 @@
             <div id="column-selector-container"></div>
         </div>
         
+        <!-- Step 3: Select problem type and test data upload -->
         <div class="step" id="problem-type-step" style="display:none;">
             <h3>Step 3: Define Problem & Load Test Data</h3>
             <div>
@@ -40,24 +43,27 @@
             </div>
         </div>
 
+        <!-- Button to trigger backend processing -->
         <div class="step">
             <button id="run-models" class="neon-button" style="display:none;">Run Analysis</button>
         </div>
         
+        <!-- Loading indicator shown during backend processing -->
         <div id="loading-indicator" style="display:none;">Processing... Please wait.</div>
         
-        <div id="summary-table-area" class="summary-results-container" style="display:none;">
-            <!-- Summary table will be injected here -->
-        </div>
+        <!-- Summary results section (metrics table) -->
+        <div id="summary-table-area" class="summary-results-container" style="display:none;"></div>
         <hr class="divider summary-divider" style="display:none;">
 
+        <!-- Plots like correlation matrix -->
         <div id="general-plots-area" class="plots-container"></div>
         <hr class="divider results-divider" style="display:none;">
         
-        <div id="results-area">
-            <!-- Detailed model results and plots will be injected here -->
-        </div>
+        <!-- Model results with metrics and prediction plots -->
+        <div id="results-area"></div>
     </div>
+
+    <!-- Main script with logic for UI behavior and server communication -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
